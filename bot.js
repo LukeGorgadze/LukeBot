@@ -1,10 +1,9 @@
 // Require the necessary discord.js classes
 const { Client, GatewayIntentBits } = require('discord.js');
-const { token } = require('./config.json');
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-
+require('dotenv').config();
 const fetch = require('node-fetch');
 const url = 'https://api.chucknorris.io/jokes/random';
 
@@ -46,4 +45,4 @@ client.on('interactionCreate', async interaction => {
 });
 
 // Login to Discord with your client's token
-client.login(token);
+client.login(process.env.BOT_TOKEN);
