@@ -1,7 +1,20 @@
 const fetch = require('node-fetch');
+const url = 'https://v2.jokeapi.dev/joke/Any';
 
-const url = 'https://api.chucknorris.io/jokes/random';
 
+// fetch(url, settings)
+// 	.then(res => res.json())
+// 	.then((json) => {
+// 		json;
+// 	});
 fetch(url)
 	.then(res => res.json())
-	.then(json => console.log(json.value));
+	.then(json => {
+		if (json.type === 'twopart') {
+			console.log(json.setup);
+			console.log(json.delivery);
+		}
+		else {
+			console.log(json.joke);
+		}
+	});

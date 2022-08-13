@@ -5,7 +5,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 require('dotenv').config();
 const fetch = require('node-fetch');
-const url = 'https://api.chucknorris.io/jokes/random';
+const url = 'https://v2.jokeapi.dev/joke/Any';
 
 
 // fetch(url, settings)
@@ -13,6 +13,9 @@ const url = 'https://api.chucknorris.io/jokes/random';
 // 	.then((json) => {
 // 		json;
 // 	});
+fetch(url)
+	.then(res => res.json())
+	.then(json => console.log(json));
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -39,7 +42,16 @@ client.on('interactionCreate', async interaction => {
 	else if (commandName === 'joke') {
 		await fetch(url)
 			.then(res => res.json())
-			.then(json => interaction.reply(json.value));
+			.then(json => {
+				let res = '';
+				if (json.type === 'twopart') {
+					res = json.setup + '\n' + json.delivery;
+				}
+				else {
+					res = json.joke;
+				}
+				interaction.reply(res);
+			});
 
 	}
 });
