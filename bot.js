@@ -37,7 +37,7 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply(`Your tag: ${interaction.user.tag}\nYour id: ${interaction.user.id}`);
 	}
 	else if (commandName === 'lukamagaria') {
-		await interaction.reply('aba raa dzmao');
+		await interaction.reply('aba raa dzmao 😎😎');
 	}
 	else if (commandName === 'joke') {
 		await fetch(url)
@@ -52,7 +52,20 @@ client.on('interactionCreate', async interaction => {
 				}
 				interaction.reply(res);
 			});
-
+	}
+	else if (commandName === 'lets') {
+		let res = '';
+		for (let i = 0; i < 10; i++) {
+			res += 'Lets Goo! 😃😃' + '\n';
+		}
+		await interaction.reply(res);
+	}
+	else if (commandName === 'sex') {
+		await interaction.reply('😳😳 YOU PERVERT');
+	}
+	else if (commandName === 'dice') {
+		const rand = Math.floor(Math.random() * 7);
+		await interaction.reply(rand);
 	}
 });
 

@@ -7,6 +7,8 @@ const url = 'https://v2.jokeapi.dev/joke/Any';
 // 	.then((json) => {
 // 		json;
 // 	});
+const rand = Math.floor(Math.random() * 7);
+console.log(rand);
 fetch(url)
 	.then(res => res.json())
 	.then(json => {

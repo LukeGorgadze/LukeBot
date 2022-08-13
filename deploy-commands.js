@@ -7,8 +7,11 @@ const commands = [
 	new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
 	new SlashCommandBuilder().setName('server').setDescription('Replies with server info!'),
 	new SlashCommandBuilder().setName('user').setDescription('Replies with user info!'),
-	new SlashCommandBuilder().setName('lukamagaria').setDescription('Replies with pong!'),
-	new SlashCommandBuilder().setName('joke').setDescription('Replies with pong!'),
+	new SlashCommandBuilder().setName('lukamagaria').setDescription('Heh, he knows, he knows!'),
+	new SlashCommandBuilder().setName('joke').setDescription('Radnom Joke'),
+	new SlashCommandBuilder().setName('lets').setDescription('Lets Goo'),
+	new SlashCommandBuilder().setName('sex').setDescription('Naughty'),
+    new SlashCommandBuilder().setName('dice').setDescription('Randomizer'),
 ]
 	.map(command => command.toJSON());
 
